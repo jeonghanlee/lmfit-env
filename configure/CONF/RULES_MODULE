@@ -24,13 +24,22 @@ help:
 default: help
 
 ## Install : 
-install: 
-	$(QUIET) sudo -E bash -c '$(MODULE_MAKE_CMDS) install'
+install:
+ifneq (,$(findstring v7,$(MODULE_TAG)))
+	$(QUIET) sudo -E bash -c '$(MODULE_MAKE_CMDS) cmakeinstall'
+else
+	$(QUIET) sudo -E bash -c '$(MODULE_MAKE_CMDS) autoconfinstall'
+endif
 
 
 ## Build: 
-build: cmake
-	$(QUIET) $(MODULE_MAKE_CMDS) build
+build: preconf
+ifneq (,$(findstring v7,$(MODULE_TAG)))
+	$(QUIET) $(MODULE_MAKE_CMDS) cmakebuild
+else
+	$(QUIET) $(MODULE_MAKE_CMDS) autoconfbuild
+endif	 
+
 
 
 ## Clean, build, and install 
@@ -39,20 +48,28 @@ rebuild: init build install
 
 ## Clean : 
 clean: conf
-	$(QUIET) $(MODULE_MAKE_CMDS) clean
+ifneq (,$(findstring v7,$(MODULE_TAG)))
+	$(QUIET) $(MODULE_MAKE_CMDS) cmakeclean
+else
+	$(QUIET) $(MODULE_MAKE_CMDS) autoconfclean
+endif	 
 
 ## Distclean :
-distclean: clean
+distclean: 
 	$(QUIET)echo "Removing $(MODULE_SRC_PATH) ......... "
 	rm -rf $(MODULE_SRC_PATH)	
 
 
 
-.PHONY: cmake conf init
+.PHONY: preconf conf init
 
 
-cmake: init conf
+preconf: init conf
+ifneq (,$(findstring v7,$(MODULE_TAG)))
 	$(QUIET) $(MODULE_MAKE_CMDS) cmake
+else
+	$(QUIET) $(MODULE_MAKE_CMDS) autoconf
+endif
 
 
 conf: 

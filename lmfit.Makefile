@@ -21,11 +21,17 @@ cmake:
 	mkdir -p $(MODULE_BUILD_DIR)
 	cd $(MODULE_BUILD_DIR) && cmake ..
 
-build:
+
+autoconf:
+	touch ChangeLog
+	autoreconf --force --install -v
+	./configure 
+
+cmakebuild:
 	cd $(MODULE_BUILD_DIR) && make 
 
 
-install: 
+cmakeinstall: 
 	cd $(MODULE_BUILD_DIR) && make install
 
 
@@ -33,9 +39,22 @@ install:
 # 	make uninstall
 
 
-clean:
+cmakeclean:
 	cd $(MODULE_BUILD_DIR) && make clean
 
 
-.PHONY: cmake build install clean
+
+autoconfbuild:
+	make 
+
+
+autoconfinstall: 
+	make install
+
+
+autoconfclean:
+	make clean
+
+
+.PHONY: cmake cmakebuild cmakeinstall cmakeclean autoconf autoconfbuild autoconfinstall autoconfclean
 

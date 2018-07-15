@@ -3,13 +3,11 @@ MODULE_NAME:=lmfit
 
 MODULE_TAG:=tags/v7.0
 
-# MODULE_VERSION:=7.0.0
-
 # In most case, we don't need to touch the following variables.
 
 MODULE_SRC_PATH:=lmfit
 MODULE_MAKEFILE:=$(MODULE_NAME).Makefile
-MODULE_BUILD_DIR=build-dir
+MODULE_BUILD_DIR:=build-dir
 
 # The definitions shown below can also be placed in an untracked CONFIG_MODULE.local
 -include $(TOP)/configure/CONFIG_MODULE.local
