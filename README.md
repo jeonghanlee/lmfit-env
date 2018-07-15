@@ -5,7 +5,7 @@ Configuration Environment for lmfit (Levenberg-Marquardt least-squares minimizat
 
 ## Requirements
 * cmake (for v7.0)
-* autotools (upto v6.4)
+* autotools (up to v6.4)
 
 ## Rules
 
@@ -28,18 +28,24 @@ All files are installed in /usr/local/{lib,include,man}
 ```
 MODULE_TAG:=tags/v7.0
 ```
+or
+```
+MODULE_TAG:=tags/v6.4
+```
 
 ### make init
 * Download the main lmfit from apps.jcns.fz-juelich.de/lmfit
-* Switch to Revison v7.0
+* Switch to Release number selected in CONFIG_MODULE
 
 ### make build
-* Prepare cmake build-dir
+
+* (v7.0) Prepare cmake environment
+* (v6.x) Prepare autoconf environment
 * Build lmfit
 
 ### make install
 * Install all files (lib, include, man) into /usr/local (default)
 
 ### make distclean
-* Delete download source file
+* Delete downloaded source file (lmfit directory under lmfit-env)
 
