@@ -1,5 +1,5 @@
 #
-#  Copyright (c) 2018 - Present  European Spallation Source ERIC
+#  Copyright (c) 2018 - Present  Jeong Han Lee
 #
 #  The program is free software: you can redistribute
 #  it and/or modify it under the terms of the GNU General Public License
