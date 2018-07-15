@@ -1,11 +1,6 @@
-# Site Specific EPICS Module Patch Files
+# Site Specific Patch Files
 
 ## Changes
-The changes were tested in local environemnt, and commits to the forked repository and do pull request to the epics community module repository.
-
-* Check the original HASH, and your own master
-* feb8856 : The original HASH
-* master : Changed
 
 
 ## How to create a p0 patch file between commits
@@ -15,10 +10,3 @@ The changes were tested in local environemnt, and commits to the forked reposito
 
 
 * Create p0 patch
-
-Mecurial on Debian 8 doesn't support --no-prefix options: 
-```
-$hg diff script/ethercatctl.in > ../use_prefix_for_ethercat_conf_path.p0.patch
-```
-And remove a/b in user_prefix_for_ethercat_conf_path.p0.patch manually.
-
