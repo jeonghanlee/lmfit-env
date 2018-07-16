@@ -9,13 +9,28 @@ Configuration Environment for lmfit (Levenberg-Marquardt least-squares minimizat
 
 ## Rules
 
-One can install lmfit with the following order:
+One can install lmfit with the following orders:
 
 ```
 lmfit-env$ make init
 lmfit-env$ make build
 lmfit-env$ make install
 ```
+
+In case that ```make build``` returns the following errors:
+```
+ error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ error: initializer element is not computable at load time [-Werror]
+ ```
+one need to patch the source code via ```make patch``` before ```make build```
+
+```
+lmfit-env$ make init
+lmfit-env$ make patch
+lmfit-env$ make build
+lmfit-env$ make install
+```
+
 
 All files are installed in /usr/local/{lib,include,man}
 
@@ -36,6 +51,9 @@ MODULE_TAG:=tags/v6.4
 ### make init
 * Download the main lmfit from apps.jcns.fz-juelich.de/lmfit
 * Switch to Release number selected in CONFIG_MODULE
+
+### make patch
+* Enable --std=gnu99 options
 
 ### make build
 
