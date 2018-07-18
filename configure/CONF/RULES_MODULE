@@ -86,3 +86,9 @@ else
 endif			 
 
 
+
+.PHONY: setup
+
+## Setup: For CentOS, add /usr/local/lib to ld.so.conf
+setup:
+	$(QUIET)sudo -E bash -c ' echo "/usr/local/lib" > "/etc/ld.so.conf.d/e3-lmfit.conf"'

@@ -32,6 +32,12 @@ lmfit-env$ make install
 ```
 
 
+For CentOS, one should run the following also
+
+```
+lmfit-env$ make setup
+```
+
 All files are installed in /usr/local/{lib,include,man}
 
 
@@ -67,3 +73,5 @@ MODULE_TAG:=tags/v6.4
 ### make distclean
 * Delete downloaded source file (lmfit directory under lmfit-env)
 
+### make setup
+* Create ld.conf for lmfit target directory (/usr/local/lib)
